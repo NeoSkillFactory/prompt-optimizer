@@ -1,0 +1,33 @@
+{
+  "id": "test-003",
+  "analysis": {
+    "prompt_length": 36,
+    "word_count": 7,
+    "agent_type": "code-generator",
+    "patterns_found": [],
+    "best_practice_violations": [
+      "Missing role definition — prompt does not specify the agent's role",
+      "Missing explicit context — no technology, environment, or state described",
+      "No output format specified — agent may return unexpected structure",
+      "No constraints defined — agent has no boundaries on behavior",
+      "No error handling instructions — agent won't know how to handle failures",
+      "Prompt is too short — likely missing critical details"
+    ],
+    "overall_quality": 52
+  },
+  "optimized_variants": [
+    {
+      "variant": 1,
+      "prompt": "You are a code generation agent that produces clean, tested, production-ready code.\n\nContext: Language: the target language. Framework: the project framework. Project context: Node.js Express app with JWT authentication.\n\nTask: Generate code for: Write some code to handle user login\n\nConstraints:\n- Follow {language} best practices and idioms\n- Include input validation and error handling\n- Add inline comments for complex logic only\n- Ensure the code is self-contained and runnable\n\nOutput Format: Return the code in a fenced code block with the language identifier"
+    },
+    {
+      "variant": 2,
+      "prompt": "You are a code generation agent that produces clean, tested, production-ready code.\n\nLanguage: the target language. Framework: the project framework. Project context: Node.js Express app with JWT authentication.\n\nTask: Generate code for: Write some code to handle user login\n\nRules: Follow {language} best practices and idioms. Include input validation and error handling. Add inline comments for complex logic only. Ensure the code is self-contained and runnable.\n\nReturn: Return the code in a fenced code block with the language identifier"
+    },
+    {
+      "variant": 3,
+      "prompt": "You are a code generation agent that produces clean, tested, production-ready code.\n\n## Context\nLanguage: the target language. Framework: the project framework. Project context: Node.js Express app with JWT authentication.\n\n## Task\nGenerate code for: Write some code to handle user login\n\n## Requirements\n1. Follow {language} best practices and idioms\n2. Include input validation and error handling\n3. Add inline comments for complex logic only\n4. Ensure the code is self-contained and runnable\n\n## Expected Output\nReturn the code in a fenced code block with the language identifier\n\n## Error Handling\nIf you encounter an error, return: {\"error\": \"<description>\", \"code\": \"<error_type>\"}\nDo not return partial results. Either complete the full task or report the error."
+    }
+  ],
+  "original_prompt": "Write some code to handle user login"
+}

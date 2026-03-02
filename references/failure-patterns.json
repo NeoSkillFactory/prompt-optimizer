@@ -1,0 +1,167 @@
+{
+  "timeout": {
+    "name": "Timeout / Slow Execution",
+    "description": "The prompt causes the agent to run too long or never complete.",
+    "signatures": [
+      "timeout",
+      "timed out",
+      "exceeded time limit",
+      "execution too slow",
+      "hung",
+      "no response"
+    ],
+    "root_causes": [
+      "Task is too broad or unbounded",
+      "Missing chunking strategy for large inputs",
+      "No explicit timeout or resource limits specified"
+    ],
+    "solutions": [
+      "Add explicit timeout parameter (e.g., 'Complete within 30 seconds')",
+      "Break task into smaller subtasks",
+      "Add chunking instructions for large data sets",
+      "Specify maximum iterations or recursion depth"
+    ],
+    "severity": "high"
+  },
+  "incomplete": {
+    "name": "Incomplete Output",
+    "description": "The agent produces partial or truncated results.",
+    "signatures": [
+      "incomplete",
+      "partial",
+      "truncated",
+      "missing fields",
+      "undefined",
+      "null result"
+    ],
+    "root_causes": [
+      "Output format not clearly specified",
+      "Task scope too large for single execution",
+      "Missing required fields in prompt"
+    ],
+    "solutions": [
+      "Define exact output schema with all required fields",
+      "Add validation step: 'Verify all required fields are present before returning'",
+      "Break into smaller tasks if output exceeds token limits",
+      "Include example of complete expected output"
+    ],
+    "severity": "high"
+  },
+  "hallucination": {
+    "name": "Hallucinated / Incorrect Output",
+    "description": "The agent generates plausible but wrong information.",
+    "signatures": [
+      "incorrect",
+      "wrong",
+      "hallucinated",
+      "fabricated",
+      "invalid data",
+      "does not exist"
+    ],
+    "root_causes": [
+      "Insufficient context provided",
+      "No ground truth or reference data supplied",
+      "Agent asked to generate data it cannot verify"
+    ],
+    "solutions": [
+      "Provide reference data or ground truth in the prompt",
+      "Add instruction: 'Only use information explicitly provided'",
+      "Include verification step in the task",
+      "Specify that unknown values should be marked as 'UNKNOWN' rather than guessed"
+    ],
+    "severity": "critical"
+  },
+  "format_mismatch": {
+    "name": "Format Mismatch",
+    "description": "Output format does not match the expected structure.",
+    "signatures": [
+      "parse error",
+      "invalid json",
+      "unexpected format",
+      "schema validation failed",
+      "type error",
+      "malformed"
+    ],
+    "root_causes": [
+      "Output format specified ambiguously",
+      "No example output provided",
+      "Conflicting format instructions"
+    ],
+    "solutions": [
+      "Provide exact JSON schema for expected output",
+      "Include a concrete example of the expected output",
+      "Add instruction: 'Return ONLY the JSON object, no additional text'",
+      "Specify data types for each field explicitly"
+    ],
+    "severity": "medium"
+  },
+  "context_overflow": {
+    "name": "Context Overflow",
+    "description": "Input prompt exceeds the agent's context window.",
+    "signatures": [
+      "context length exceeded",
+      "token limit",
+      "input too long",
+      "maximum length",
+      "context window"
+    ],
+    "root_causes": [
+      "Too much context included in prompt",
+      "No summarization or chunking applied",
+      "Entire file contents embedded instead of relevant sections"
+    ],
+    "solutions": [
+      "Summarize context instead of including raw data",
+      "Extract only relevant sections from large documents",
+      "Implement chunking: process data in smaller batches",
+      "Use references to external data instead of inline content"
+    ],
+    "severity": "medium"
+  },
+  "permission_error": {
+    "name": "Permission / Access Error",
+    "description": "The agent lacks required permissions to complete the task.",
+    "signatures": [
+      "permission denied",
+      "access denied",
+      "unauthorized",
+      "forbidden",
+      "not allowed"
+    ],
+    "root_causes": [
+      "Required credentials not provided in prompt",
+      "Agent operating outside its authorized scope",
+      "Missing API keys or tokens"
+    ],
+    "solutions": [
+      "Include necessary credentials or specify how to obtain them",
+      "Define the agent's authorization scope explicitly",
+      "Add fallback behavior for permission errors",
+      "Specify which resources the agent is authorized to access"
+    ],
+    "severity": "high"
+  },
+  "ambiguous_task": {
+    "name": "Ambiguous Task Definition",
+    "description": "The agent misinterprets the task due to vague instructions.",
+    "signatures": [
+      "unexpected behavior",
+      "wrong action",
+      "misunderstood",
+      "not what was expected",
+      "different from expected"
+    ],
+    "root_causes": [
+      "Task description uses vague language",
+      "Multiple interpretations possible",
+      "Missing success criteria"
+    ],
+    "solutions": [
+      "Replace vague terms with specific instructions",
+      "Add explicit success criteria",
+      "Include examples of correct and incorrect behavior",
+      "Use structured prompt format (role, context, task, constraints, output)"
+    ],
+    "severity": "medium"
+  }
+}

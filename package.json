@@ -1,0 +1,26 @@
+{
+  "name": "prompt-optimizer",
+  "version": "1.0.0",
+  "description": "Automate prompt improvement for builder agents to reduce failures and enhance performance.",
+  "main": "scripts/main.js",
+  "bin": {
+    "prompt-optimizer": "scripts/main.js"
+  },
+  "scripts": {
+    "start": "node scripts/main.js",
+    "analyze": "node scripts/main.js analyze --file assets/test-prompts.json",
+    "optimize": "node scripts/main.js optimize --file assets/test-prompts.json",
+    "batch": "node scripts/main.js batch --file assets/test-prompts.json --output assets/sample-output",
+    "test": "node scripts/test.js"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0"
+  },
+  "keywords": [
+    "prompt",
+    "optimizer",
+    "builder-agent",
+    "openclaw"
+  ],
+  "license": "MIT"
+}

@@ -1,0 +1,49 @@
+{
+  "id": "test-007",
+  "analysis": {
+    "prompt_length": 401,
+    "word_count": 52,
+    "agent_type": "general",
+    "patterns_found": [
+      {
+        "pattern": "context_overflow",
+        "name": "Context Overflow",
+        "confidence": 1,
+        "severity": "medium",
+        "root_causes": [
+          "Too much context included in prompt",
+          "No summarization or chunking applied",
+          "Entire file contents embedded instead of relevant sections"
+        ],
+        "solutions": [
+          "Summarize context instead of including raw data",
+          "Extract only relevant sections from large documents",
+          "Implement chunking: process data in smaller batches",
+          "Use references to external data instead of inline content"
+        ]
+      }
+    ],
+    "best_practice_violations": [
+      "Missing role definition — prompt does not specify the agent's role",
+      "Missing explicit context — no technology, environment, or state described",
+      "No constraints defined — agent has no boundaries on behavior",
+      "No error handling instructions — agent won't know how to handle failures"
+    ],
+    "overall_quality": 58
+  },
+  "optimized_variants": [
+    {
+      "variant": 1,
+      "prompt": "You are an automation agent that performs tasks accurately and efficiently.\n\nContext: Analytics pipeline with 500GB of customer data\n\nTask: Generate a comprehensive report analyzing all customer data from the past 5 years including purchase history, browsing patterns, demographic information, support tickets, email interactions, social media mentions, product reviews, return history, loyalty program activity, and cross-reference with competitor data to identify churn risk factors and lifetime value predictions for each customer segment\n\nConstraints:\n- Validate all inputs before processing\n- Handle errors gracefully with clear messages\n- Return structured output in the specified format\n- Exit with appropriate status codes\n- Summarize context instead of including raw data\n\nOutput Format: Return a JSON object with keys: 'status', 'result', 'errors'"
+    },
+    {
+      "variant": 2,
+      "prompt": "You are an automation agent that performs tasks accurately and efficiently.\n\nAnalytics pipeline with 500GB of customer data\n\nTask: Generate a comprehensive report analyzing all customer data from the past 5 years including purchase history, browsing patterns, demographic information, support tickets, email interactions, social media mentions, product reviews, return history, loyalty program activity, and cross-reference with competitor data to identify churn risk factors and lifetime value predictions for each customer segment\n\nRules: Validate all inputs before processing. Handle errors gracefully with clear messages. Return structured output in the specified format. Exit with appropriate status codes.\n\nReturn: Return a JSON object with keys: 'status', 'result', 'errors'"
+    },
+    {
+      "variant": 3,
+      "prompt": "You are an automation agent that performs tasks accurately and efficiently.\n\n## Context\nAnalytics pipeline with 500GB of customer data\n\n## Task\nGenerate a comprehensive report analyzing all customer data from the past 5 years including purchase history, browsing patterns, demographic information, support tickets, email interactions, social media mentions, product reviews, return history, loyalty program activity, and cross-reference with competitor data to identify churn risk factors and lifetime value predictions for each customer segment\n\n## Requirements\n1. Validate all inputs before processing\n2. Handle errors gracefully with clear messages\n3. Return structured output in the specified format\n4. Exit with appropriate status codes\n5. Implement chunking: process data in smaller batches\n\n## Expected Output\nReturn a JSON object with keys: 'status', 'result', 'errors'\n\n## Error Handling\nIf you encounter an error, return: {\"error\": \"<description>\", \"code\": \"<error_type>\"}\nDo not return partial results. Either complete the full task or report the error."
+    }
+  ],
+  "original_prompt": "Generate a comprehensive report analyzing all customer data from the past 5 years including purchase history, browsing patterns, demographic information, support tickets, email interactions, social media mentions, product reviews, return history, loyalty program activity, and cross-reference with competitor data to identify churn risk factors and lifetime value predictions for each customer segment"
+}

@@ -1,0 +1,34 @@
+# prompt-optimizer configuration
+# Runtime settings for prompt analysis and optimization
+
+# Maximum number of prompt variants to generate per optimization
+maxVariants: 3
+
+# Minimum confidence threshold for pattern matches (0.0 - 1.0)
+minConfidence: 0.6
+
+# Default agent type when not specified via CLI
+defaultAgentType: general
+
+# Output format: "json" or "text"
+outputFormat: json
+
+# Paths to reference files (relative to skill root)
+paths:
+  templates: references/templates.json
+  failurePatterns: references/failure-patterns.json
+  bestPractices: references/best-practices.md
+
+# Analysis settings
+analysis:
+  # Maximum number of failure patterns to report per prompt
+  maxPatternsPerPrompt: 5
+  # Include solution suggestions in analysis output
+  includeSolutions: true
+
+# Optimization settings
+optimization:
+  # Apply best practices validation to generated prompts
+  validateBestPractices: true
+  # Include the original prompt in output for comparison
+  includeOriginal: true

@@ -1,0 +1,33 @@
+{
+  "id": "test-001",
+  "analysis": {
+    "prompt_length": 13,
+    "word_count": 3,
+    "agent_type": "db-builder",
+    "patterns_found": [],
+    "best_practice_violations": [
+      "Missing role definition — prompt does not specify the agent's role",
+      "Missing explicit context — no technology, environment, or state described",
+      "No output format specified — agent may return unexpected structure",
+      "No constraints defined — agent has no boundaries on behavior",
+      "No error handling instructions — agent won't know how to handle failures",
+      "Prompt is too short — likely missing critical details"
+    ],
+    "overall_quality": 52
+  },
+  "optimized_variants": [
+    {
+      "variant": 1,
+      "prompt": "You are a database builder agent responsible for creating and managing database schemas and queries.\n\nContext: You are working with the target database. The target schema involves the required schema.\n\nTask: Generate the following: Build a table\n\nConstraints:\n- Use only standard SQL syntax compatible with {database_type}\n- Include error handling for common failure cases\n- Validate all input parameters before execution\n- Return results in structured JSON format\n\nOutput Format: Return a JSON object with keys: 'sql', 'parameters', 'expected_result_schema'"
+    },
+    {
+      "variant": 2,
+      "prompt": "You are a database builder agent responsible for creating and managing database schemas and queries.\n\nYou are working with the target database. The target schema involves the required schema.\n\nTask: Generate the following: Build a table\n\nRules: Use only standard SQL syntax compatible with {database_type}. Include error handling for common failure cases. Validate all input parameters before execution. Return results in structured JSON format.\n\nReturn: Return a JSON object with keys: 'sql', 'parameters', 'expected_result_schema'"
+    },
+    {
+      "variant": 3,
+      "prompt": "You are a database builder agent responsible for creating and managing database schemas and queries.\n\n## Context\nYou are working with the target database. The target schema involves the required schema.\n\n## Task\nGenerate the following: Build a table\n\n## Requirements\n1. Use only standard SQL syntax compatible with {database_type}\n2. Include error handling for common failure cases\n3. Validate all input parameters before execution\n4. Return results in structured JSON format\n\n## Expected Output\nReturn a JSON object with keys: 'sql', 'parameters', 'expected_result_schema'\n\n## Error Handling\nIf you encounter an error, return: {\"error\": \"<description>\", \"code\": \"<error_type>\"}\nDo not return partial results. Either complete the full task or report the error."
+    }
+  ],
+  "original_prompt": "Build a table"
+}

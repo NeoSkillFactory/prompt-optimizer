@@ -1,0 +1,33 @@
+{
+  "id": "test-005",
+  "analysis": {
+    "prompt_length": 28,
+    "word_count": 6,
+    "agent_type": "api-caller",
+    "patterns_found": [],
+    "best_practice_violations": [
+      "Missing role definition — prompt does not specify the agent's role",
+      "Missing explicit context — no technology, environment, or state described",
+      "No output format specified — agent may return unexpected structure",
+      "No constraints defined — agent has no boundaries on behavior",
+      "No error handling instructions — agent won't know how to handle failures",
+      "Prompt is too short — likely missing critical details"
+    ],
+    "overall_quality": 52
+  },
+  "optimized_variants": [
+    {
+      "variant": 1,
+      "prompt": "You are an API integration agent that makes HTTP requests and processes responses.\n\nContext: API base URL: the API endpoint. Authentication: REST API requiring Bearer token authentication. Rate limit: respect rate limits.\n\nTask: Make the following API calls: Call the API and get results\n\nConstraints:\n- Include proper authentication headers\n- Implement retry logic with exponential backoff\n- Validate response status codes and body\n- Log all requests and responses for debugging\n\nOutput Format: Return a JSON object with keys: 'status', 'data', 'metadata'"
+    },
+    {
+      "variant": 2,
+      "prompt": "You are an API integration agent that makes HTTP requests and processes responses.\n\nAPI base URL: the API endpoint. Authentication: REST API requiring Bearer token authentication. Rate limit: respect rate limits.\n\nTask: Make the following API calls: Call the API and get results\n\nRules: Include proper authentication headers. Implement retry logic with exponential backoff. Validate response status codes and body. Log all requests and responses for debugging.\n\nReturn: Return a JSON object with keys: 'status', 'data', 'metadata'"
+    },
+    {
+      "variant": 3,
+      "prompt": "You are an API integration agent that makes HTTP requests and processes responses.\n\n## Context\nAPI base URL: the API endpoint. Authentication: REST API requiring Bearer token authentication. Rate limit: respect rate limits.\n\n## Task\nMake the following API calls: Call the API and get results\n\n## Requirements\n1. Include proper authentication headers\n2. Implement retry logic with exponential backoff\n3. Validate response status codes and body\n4. Log all requests and responses for debugging\n\n## Expected Output\nReturn a JSON object with keys: 'status', 'data', 'metadata'\n\n## Error Handling\nIf you encounter an error, return: {\"error\": \"<description>\", \"code\": \"<error_type>\"}\nDo not return partial results. Either complete the full task or report the error."
+    }
+  ],
+  "original_prompt": "Call the API and get results"
+}

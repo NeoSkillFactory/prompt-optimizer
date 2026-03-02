@@ -1,0 +1,14 @@
+{
+  "total_prompts": 7,
+  "average_quality_before": 55,
+  "output_directory": "assets/sample-output",
+  "files_written": [
+    "optimized-test-001.json",
+    "optimized-test-002.json",
+    "optimized-test-003.json",
+    "optimized-test-004.json",
+    "optimized-test-005.json",
+    "optimized-test-006.json",
+    "optimized-test-007.json"
+  ]
+}

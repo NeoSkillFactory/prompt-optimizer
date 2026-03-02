@@ -1,0 +1,51 @@
+[
+  {
+    "id": "test-001",
+    "prompt": "Build a table",
+    "agentType": "db-builder",
+    "error": "incomplete output — missing column definitions and constraints",
+    "context": "PostgreSQL 15, users table needed for auth system"
+  },
+  {
+    "id": "test-002",
+    "prompt": "Scrape the website and get all the data",
+    "agentType": "web-scraper",
+    "error": "timed out after 60 seconds, no results returned",
+    "context": "Target: product listing page with 10000+ items"
+  },
+  {
+    "id": "test-003",
+    "prompt": "Write some code to handle user login",
+    "agentType": "code-generator",
+    "error": "unexpected format — returned plain text instead of code block",
+    "context": "Node.js Express app with JWT authentication"
+  },
+  {
+    "id": "test-004",
+    "prompt": "Process the CSV file",
+    "agentType": "file-processor",
+    "error": "null result — no output generated",
+    "context": "1GB CSV with user records, needs deduplication"
+  },
+  {
+    "id": "test-005",
+    "prompt": "Call the API and get results",
+    "agentType": "api-caller",
+    "error": "unauthorized — 401 response from target API",
+    "context": "REST API requiring Bearer token authentication"
+  },
+  {
+    "id": "test-006",
+    "prompt": "You are a helpful assistant. Do the database thing correctly and make sure it works well. Handle errors appropriately and return good results.",
+    "agentType": "db-builder",
+    "error": "wrong action — created tables in wrong schema, misunderstood task scope",
+    "context": "Multi-tenant PostgreSQL with schema-per-tenant"
+  },
+  {
+    "id": "test-007",
+    "prompt": "Generate a comprehensive report analyzing all customer data from the past 5 years including purchase history, browsing patterns, demographic information, support tickets, email interactions, social media mentions, product reviews, return history, loyalty program activity, and cross-reference with competitor data to identify churn risk factors and lifetime value predictions for each customer segment",
+    "agentType": "general",
+    "error": "context length exceeded — prompt plus data exceeded token limit",
+    "context": "Analytics pipeline with 500GB of customer data"
+  }
+]

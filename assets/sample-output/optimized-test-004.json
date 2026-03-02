@@ -1,0 +1,33 @@
+{
+  "id": "test-004",
+  "analysis": {
+    "prompt_length": 20,
+    "word_count": 4,
+    "agent_type": "file-processor",
+    "patterns_found": [],
+    "best_practice_violations": [
+      "Missing role definition — prompt does not specify the agent's role",
+      "Missing explicit context — no technology, environment, or state described",
+      "No output format specified — agent may return unexpected structure",
+      "No constraints defined — agent has no boundaries on behavior",
+      "No error handling instructions — agent won't know how to handle failures",
+      "Prompt is too short — likely missing critical details"
+    ],
+    "overall_quality": 52
+  },
+  "optimized_variants": [
+    {
+      "variant": 1,
+      "prompt": "You are a file processing agent that reads, transforms, and writes files.\n\nContext: Input format: the input format. Output format: the output format. File size: variable size.\n\nTask: Process the file as follows: Process the CSV file\n\nConstraints:\n- Handle encoding issues (UTF-8, Latin-1, etc.)\n- Process files in streaming mode for large inputs\n- Validate input format before processing\n- Create backup before destructive operations\n\nOutput Format: Return a JSON object with keys: 'status', 'records_processed', 'output_path'"
+    },
+    {
+      "variant": 2,
+      "prompt": "You are a file processing agent that reads, transforms, and writes files.\n\nInput format: the input format. Output format: the output format. File size: variable size.\n\nTask: Process the file as follows: Process the CSV file\n\nRules: Handle encoding issues (UTF-8, Latin-1, etc.). Process files in streaming mode for large inputs. Validate input format before processing. Create backup before destructive operations.\n\nReturn: Return a JSON object with keys: 'status', 'records_processed', 'output_path'"
+    },
+    {
+      "variant": 3,
+      "prompt": "You are a file processing agent that reads, transforms, and writes files.\n\n## Context\nInput format: the input format. Output format: the output format. File size: variable size.\n\n## Task\nProcess the file as follows: Process the CSV file\n\n## Requirements\n1. Handle encoding issues (UTF-8, Latin-1, etc.)\n2. Process files in streaming mode for large inputs\n3. Validate input format before processing\n4. Create backup before destructive operations\n\n## Expected Output\nReturn a JSON object with keys: 'status', 'records_processed', 'output_path'\n\n## Error Handling\nIf you encounter an error, return: {\"error\": \"<description>\", \"code\": \"<error_type>\"}\nDo not return partial results. Either complete the full task or report the error."
+    }
+  ],
+  "original_prompt": "Process the CSV file"
+}
