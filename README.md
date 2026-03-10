@@ -24,8 +24,6 @@ Runtime settings are stored in `assets/config.yaml`. Key settings:
 
 Source code: [github.com/NeoSkillFactory/prompt-optimizer](https://github.com/NeoSkillFactory/prompt-optimizer)
 
-**Price suggestion:** $8 USD
-
 ## License
 
 MIT © NeoSkillFactory
